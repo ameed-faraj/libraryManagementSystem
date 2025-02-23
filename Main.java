@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
 public static void main (String []args){
     Library books=new Library();
-    String i="0";
+    String i;
     boolean a=true;
 while (a){
     System.out.println("please enter your option :");
