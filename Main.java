@@ -9,29 +9,65 @@ while (a){
     System.out.println("1. Add Book");
     System.out.println("2. Show All Books");
     System.out.println("3. Search Book by Title");
-    System.out.println("4. Delete Book");
+    System.out.println("4. Delete Book By id");
     System.out.println("5. Exit");
+    System.out.println("   ---------------------");
     Scanner myObj = new Scanner(System.in);
     i= myObj.nextLine();
     switch (i){
 
 
         case"1":
-            int id,year;
-            String title,author;
+            int id=-1,year=-1;
+            String title=null,author=null;
 
-            System.out.println("please enter book id");
-            myObj = new Scanner(System.in);
-            id=myObj.nextInt();
+                System.out.println("please enter book id");
+                while(id==-1){
+                    try {
+                        myObj = new Scanner(System.in);
+                        id=myObj.nextInt();
+                    } catch (Exception e) {
+                        System.out.println("input not valid");
+                        System.out.println("please enter an valid input");
+                    }
+                }
+
+
             System.out.println("please enter book title");
-            myObj = new Scanner(System.in);
-            title=myObj.nextLine();
+                while(title==null) {
+                    try {
+                        myObj = new Scanner(System.in);
+                        title = myObj.nextLine();
+                    } catch (Exception e) {
+                        System.out.println("input not valid");
+                        System.out.println("please enter an valid input");
+                    }
+                }
+
             System.out.println("please enter book author");
-            myObj = new Scanner(System.in);
-            author=myObj.nextLine();
+                while (author==null)
+                {
+                    try{
+                        myObj = new Scanner(System.in);
+                        author=myObj.nextLine();
+                    } catch (Exception e) {
+                        System.out.println("input not valid");
+                        System.out.println("please enter an valid input");
+                    }
+
+                }
+
             System.out.println("please enter book year");
-            myObj = new Scanner(System.in);
-            year=myObj.nextInt();
+                while(year==-1){
+                    try {
+                        myObj = new Scanner(System.in);
+                        year = myObj.nextInt();
+                    } catch (Exception e) {
+                        System.out.println("input not valid");
+                        System.out.println("please enter an valid input");
+                    }
+                }
+
             books.AddBook(id,title,author,year);
             System.out.println("book added");
             break;
@@ -43,14 +79,28 @@ while (a){
 
         case "3":
             System.out.println("please enter book title");
-            myObj = new Scanner(System.in);
-            books.Search(myObj.nextLine());
+            try {
+                myObj = new Scanner(System.in);
+                books.Search(myObj.nextLine());
+            } catch (Exception e) {
+                System.out.println("input not valid");
+            }
             break;
 
         case"4":
+           int d=-1;
             System.out.println("please enter book id");
-            myObj = new Scanner(System.in);
-            books.Delete(myObj.nextInt());
+            while (d==-1){
+                try{
+                    myObj = new Scanner(System.in);
+                    d=myObj.nextInt();
+                    books.Delete(d);
+                } catch (Exception e) {
+                    System.out.println("input not valid");
+                    System.out.println("please enter an valid input");
+                }
+            }
+
             break;
 
         case"5":

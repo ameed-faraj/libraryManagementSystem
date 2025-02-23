@@ -5,17 +5,17 @@ public class Book {
     private int year;
 
     public Book(){
-        this.id=-1;
-        this.title="empty";
-        this.author="empty";
-        this.year=-9999;
+        setId(-1);
+        setAuthor("none");
+        setTitle("none");
+        setYear(-9999);
     }
 
     public Book( int id,String title,String author,int year){
-        this.id=id;
-        this.title=title;
-        this.author=author;
-        this.year=year;
+        setId(id);
+        setAuthor(author);
+        setTitle(title);
+        setYear(year);
     }
     public int getId(){
         return this.id;
